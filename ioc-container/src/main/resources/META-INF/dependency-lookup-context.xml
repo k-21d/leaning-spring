@@ -17,11 +17,14 @@
     <!-- 经过合并后 GenericBeanDefinition 变成 RootBeanDefinition -->
     <bean id="user" class="com.k21d.learning.spring.ioc.domain.User">
         <property name="id" value="1"/>
-        <property name="name" value="小马哥"/>
+        <property name="name" value="smith"/>
     </bean>
 
     <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="user"/>
     </bean>
 
+    <bean id="superUser" class="com.k21d.learning.spring.ioc.domain.SuperUser" parent="user" primary="true">
+        <property name="address" value="hz"/>
+    </bean>
 </beans>
